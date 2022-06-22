@@ -9,9 +9,22 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mantine/core": "^4.2.10",
+    "@mantine/dates": "^4.2.10",
+    "@mantine/form": "^4.2.10",
+    "@mantine/hooks": "^4.2.10",
+    "@mantine/next": "^4.2.10",
+    "@mantine/notifications": "^4.2.10",
+    "@types/react-input-mask": "^3.0.1",
+    "axios": "^0.27.2",
+    "classnames": "^2.3.1",
+    "dayjs": "^1.11.3",
+    "mongodb": "^4.7.0",
     "next": "12.1.6",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-input-mask": "^3.0.0-alpha.2",
+    "sass": "^1.52.3"
   },
   "devDependencies": {
     "@types/node": "18.0.0",
