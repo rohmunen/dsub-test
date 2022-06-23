@@ -8,5 +8,5 @@ type Data = {
 }
 
 export const cardPost = (data: Data) => {
-  axios.post('http://localhost:3000/api/hello', data)
+  axios.post('http://localhost:3000/api/card', data)
 }
