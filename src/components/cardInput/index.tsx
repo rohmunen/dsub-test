@@ -16,7 +16,7 @@ interface Props {
 
 export const CardInput = (props: Props) => {
   const { className } = props
-  const [valid, setValid] = useState(false)
+  const [ valid, setValid ] = useState(false)
   const form = useForm({
     initialValues: {
       cardNumber: '',
@@ -27,14 +27,14 @@ export const CardInput = (props: Props) => {
   })
   useEffect(() => {
     console.log(valid)
-    console.log(form.values.cardNumber.replaceAll('_','').length )
-    console.log(form.values.expirationDate.replaceAll('_','').length)
+    console.log(form.values.cardNumber.replaceAll('_', '').length)
+    console.log(form.values.expirationDate.replaceAll('_', '').length)
     console.log(form.values.CVV.length)
     console.log(form.values.amount.length)
     if (
-      form.values.cardNumber.replaceAll('_','').length === 19
-      && form.values.expirationDate.replaceAll('_','').length === 7 
-      && form.values.CVV.length === 3 
+      form.values.cardNumber.replaceAll('_', '').length === 19
+      && form.values.expirationDate.replaceAll('_', '').length === 7
+      && form.values.CVV.length === 3
       && form.values.amount.length > 0
     ) {
       setValid(true)
@@ -45,7 +45,7 @@ export const CardInput = (props: Props) => {
 
   return (
     <div className={ cn(styles.cardInput, className) }>
-      <form onSubmit={(e)=>{e.preventDefault()}}>
+      <form onSubmit={ (e) => { e.preventDefault() } }>
         <div className={ styles.cardNumExp }>
           <InputMask
             onChange={ (e) => { form.setFieldValue('cardNumber', e.target.value) } }
@@ -82,8 +82,8 @@ export const CardInput = (props: Props) => {
         </InputMask>
         <InputMask
           onChange={ (e) => { form.setFieldValue('amount', e.target.value) } }
-          mask='99999999999999999999'
-          maskPlaceholder={''}
+          mask={ CONSTANTS.AMOUNT_MASK }
+          maskPlaceholder={ '' }
         >
           <TextInput
             required
@@ -92,17 +92,19 @@ export const CardInput = (props: Props) => {
         </InputMask>
 
 
-        <Button 
-        className={valid ? styles.active : undefined} 
-        disabled={!valid} type="submit" 
-        onClick={ () => {cardPost({
-          cardNumber: form.values.cardNumber,
-          expDate: form.values.expirationDate,
-          CVV: form.values.CVV,
-          amount: form.values.amount
-          })} 
-          }> 
-        Submit 
+        <Button
+          className={ valid ? styles.active : undefined }
+          disabled={ !valid } type="submit"
+          onClick={ () => {
+            cardPost({
+              cardNumber: form.values.cardNumber,
+              expDate: form.values.expirationDate,
+              CVV: form.values.CVV,
+              amount: form.values.amount
+            })
+          }
+          }>
+          Submit
         </Button>
       </form>
     </div>
